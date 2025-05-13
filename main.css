@@ -262,6 +262,8 @@ table ol {
   font-weight: bold;
 }
 
+/* ─── tighter spacing inside each publication ─── */
 .publications‐item .details p {
-  margin: 0 0 0.5rem;       /* small gap between lines */
+  margin: 0;             /* no top or bottom gap */
+  line-height: 1.3;      /* you can tweak this smaller if you like */
 }
