@@ -242,3 +242,26 @@ table ol {
     margin-left: 5px;
     padding-top: 2px;
 }
+
+/* ───── Publications grid ───── */
+.publications {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.publications‐item {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  column-gap: 1em;
+  margin-bottom: 2.4rem;    /* match your .divider bottom */
+}
+
+.publications‐item .venue {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.publications‐item .details p {
+  margin: 0 0 0.5rem;       /* small gap between lines */
+}
