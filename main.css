@@ -70,7 +70,7 @@ div#pagetitle{
   /*margin-left: 10%;*/
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: min(700px, 100%);
   margin-bottom: 3%; /*previously 4*/
   display: flex;
   justify-content: center;
@@ -299,3 +299,30 @@ table ol {
 @media (max-width: 1024px) {
   .service-grid { grid-template-columns: 1fr; }
 }
+
+/* --- Mobile layout fixes --- */
+@media (max-width: 600px) {
+  /* Let the outer containers use the full screen width */
+  #contentpane { width: 100%; }
+  div#content { margin-left: 16px; margin-right: 16px; }  /* was 40px/40px */
+
+  /* Make the page title area responsive (avoid fixed 700px) */
+  div#pagetitle { width: 100%; }
+
+  /* Avoid huge left push on the header image */
+  #headerimg { margin-left: 16px; }
+
+  /* Navigation bar: remove negative left margin that causes overflow/zoom-out */
+  .nav {
+    margin-left: 0;
+    left: 0; right: 0;           /* pin to edges instead of using negative margins */
+    box-sizing: border-box;
+  }
+}
+
+/* Prevent any horizontal scroll caused by outliers */
+html, body { overflow-x: hidden; }
+
+/* Ensure images never force the layout wider than the viewport */
+img { max-width: 100%; height: auto; }
+
