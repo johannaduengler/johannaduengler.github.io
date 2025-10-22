@@ -262,18 +262,22 @@ table ol {
   font-weight: bold;
 }
 
-/* Academic Service: grid key–value */
+/* Academic Service: grid key–value (Chrome desktop fix) */
 .service-grid {
   display: grid;
-  grid-template-columns: 12em 1fr;
-  gap: .25rem 1rem;
+  grid-template-columns: clamp(9em, 22vw, 14em) 1fr; /* responsive label column */
+  gap: .4rem 1.2rem;
   align-items: start;
   margin: 0 0 1rem;
 }
-.service-grid .label { font-weight: 600; }
-.service-grid .value { line-height: 1.5; }
 
-/* Stack on small screens */
-@media (max-width: 600px) {
+/* Critical: allow grid items to actually shrink/wrap in Chrome */
+.service-grid > * { min-width: 0; }
+
+.service-grid .label { font-weight: 600; }
+.service-grid .value { line-height: 1.5; word-break: break-word; }
+
+/* Stack earlier on laptops if you prefer */
+@media (max-width: 1024px) {
   .service-grid { grid-template-columns: 1fr; }
 }
