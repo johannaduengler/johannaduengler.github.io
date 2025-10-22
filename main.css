@@ -242,38 +242,42 @@ table ol {
   padding-top: 2px;
 }
 
-/* ───── Publications grid ───── */
+/* ───── Publications (class-agnostic, robust) ───── */
 .publications {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Publications: support both ASCII '-' and Unicode '‐' hyphen, and wrap nicely in Chrome */
-.publications-item,
-.publications‐item {
+.publications li {
   display: grid;
   grid-template-columns: 8em 1fr;
   column-gap: 1em;
-  margin-bottom: 2.4rem;   /* match your .divider bottom */
+  margin: 0 0 2.4rem 0;
 }
 
-.publications-item > *,
-.publications‐item > * {
-  min-width: 0;            /* critical: allow content to shrink/wrap in Grid (Chrome fix) */
-}
+/* allow content to wrap properly in Chrome */
+.publications li > * { min-width: 0; }
 
-.publications-item .venue,
-.publications‐item .venue {
+.publications .venue {
   font-style: italic;
   font-weight: bold;
 }
 
-/* tighter spacing inside each publication */
-.publications-item .details p,
-.publications‐item .details p {
+/* kill extra paragraph spacing inside details */
+.publications .details p {
   margin: 0;
   line-height: 1.3;
+}
+
+/* tiny vertical rhythm, if you want a hair of space between stacked <p> */
+.publications .details p + p {
+  margin-top: .2rem;   /* optional – delete if you want them even tighter */
+}
+
+/* mobile: stack the two columns */
+@media (max-width: 600px) {
+  .publications li { grid-template-columns: 1fr; }
 }
 
 /* ───── Academic Service: grid key–value (Chrome desktop fix) ───── */
