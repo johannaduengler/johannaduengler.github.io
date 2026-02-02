@@ -249,6 +249,10 @@ table ol {
   padding: 0;
 }
 
+.publications .details .authors {
+  color: #777;
+}
+
 .publications .primary {
   font-weight: 600;   /* try 500–650 */
 }
